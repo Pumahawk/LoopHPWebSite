@@ -1,0 +1,10 @@
+---
+layout: wiki
+---
+{% if site.data.home.intro.output %}
+  {% assign intro = site.docs | where: "id", site.data.home.intro.id | first %}
+  {{intro.content}}
+  {% if intro.next_doc %}
+    <a href="{{intro.next_doc | relative_url}}"><button type="button" class="btn btn-outline-dark"><i class="material-icons">navigate_next</i></button></a>
+  {% endif %}
+{% endif %}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Routing | LoopHP</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Routing" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Configurazione Routing" />
+<meta property="og:description" content="Configurazione Routing" />
+<link rel="canonical" href="/LoopHPWebSite/docs/Routing.html" />
+<meta property="og:url" content="/LoopHPWebSite/docs/Routing.html" />
+<meta property="og:site_name" content="LoopHP" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-12T00:32:35+01:00" />
+<script type="application/ld+json">
+{"description":"Configurazione Routing","@type":"BlogPosting","url":"/LoopHPWebSite/docs/Routing.html","headline":"Routing","dateModified":"2019-03-12T00:32:35+01:00","datePublished":"2019-03-12T00:32:35+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"/LoopHPWebSite/docs/Routing.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/LoopHPWebSite/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/LoopHPWebSite/feed.xml" title="LoopHP" /></head>
+<link rel="stylesheet" href="/LoopHPWebSite/assets/css/style.css"><body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/LoopHPWebSite/">LoopHP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/LoopHPWebSite/indexpages.html">SinglePageWikiGenerator</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Navigation content
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/LoopHPWebSite/all-guides.html">All guides</a>
+            <a class="dropdown-item" href="/LoopHPWebSite/all-docs.html">All documentation pages</a>
+          <a class="dropdown-item" href="/LoopHPWebSite/index-pages-doc.html">Index single documentation page</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav><main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <h1 id="configurazione-routing">Configurazione Routing</h1>
+
+<p>Il <strong>Routing</strong> e’ molto utilizzato nelle applicazioni web e permette di configurare
+le richieste per richiamare automaticamente i controller passando dati aggiuntivi.</p>
+
+<p>Ci sono diversi modi per configurare i <strong>Route</strong> dell’applicazione:</p>
+
+<ul>
+  <li>Codice PHP</li>
+  <li>File di configurazione in PHP</li>
+  <li>File di configurazione in YAML</li>
+</ul>
+
+<p>Per la realizzazione di questa funzionalita’ e’ stato utilizzato <a href="https://symfony.com/doc/current/components/routing.html">The Routing Component</a>
+di <strong>Symfony</strong>.</p>
+
+<p>Per utilizzare questo tipo di configurazione con <strong>LoopHP</strong> si puo’ utilizzare 
+la classe <a href="https://github.com/Pumahawk/LoopHP/blob/master/src/Matchable/UrlMatcher.php">UrlMatcher</a>.</p>
+
+<p><code class="highlighter-rouge">UrlMatcher</code> richiede un <a href="https://api.symfony.com/2.3/Symfony/Component/Routing/RouteCollection.html">RouteCollection</a> di Symfony, quindi possiamo crearne uno seguendo il metodo fornito dalla documentazione
+di Symfony oppure possiamo utilizzare <a href="https://github.com/Pumahawk/LoopHP/blob/master/src/Routing/RouteGroup.php">RouteGroup</a> di
+LoopHP molto piu’ facile da utilizzare con LoopHP.</p>
+
+<h2 id="codice-php">Codice PHP</h2>
+
+<p>E’ il metodo piu’ veloce e non richiede il supporto di file aggiuntivi ma non e’
+il piu’ indicato per applicazioni di grandi dimensioni.</p>
+
+<p>Come prima cosa creiamo un <code class="highlighter-rouge">RouteGroup</code> a cui passeremo i <a href="https://github.com/Pumahawk/LoopHP/blob/master/src/Routing/Route.php">Route</a> di LoopHP.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$routeGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteGroup</span><span class="p">();</span>
+<span class="nv">$routeToHome</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">,</span> <span class="s1">'/home'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ControllerData</span><span class="p">(</span><span class="s1">'C\\Controller'</span><span class="p">,</span> <span class="s1">'home'</span><span class="p">));</span>
+<span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">add</span><span class="p">(</span><span class="nv">$routeToHome</span><span class="p">);</span>
+
+<span class="c1"># RouteGroup::getRouteCollection converte l'oggetto in un RouteCollection</span>
+<span class="c1"># RequestContext e' una classe di Symfony</span>
+<span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">getRouteCollection</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">'/'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="file-di-configurazione-in-php">File di configurazione in PHP</h2>
+
+<p>E’ possibile creare un file di configurazione che venga processato in automatico
+dall’applicazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">[</span>
+  <span class="s1">'router'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'group'</span><span class="p">,</span>
+      <span class="s1">'pattern'</span> <span class="o">=&gt;</span> <span class="s1">'/pathgroup'</span><span class="p">,</span>
+      <span class="s1">'address'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'route'</span><span class="p">,</span>
+          <span class="s1">'pattern'</span> <span class="o">=&gt;</span> <span class="s1">'/path'</span><span class="p">,</span>
+          <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'controller'</span> <span class="o">=&gt;</span> <span class="s1">'controller@action'</span>
+          <span class="p">]</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>Per utilizzare questo file di configurazione bisogna settare il path della cartella
+contenente i file di configurazione.</p>
+
+<p>E’ importante che il file abbia estensione .route.php cosi’ che l’applicazione
+possa convertire il contenuto automaticamente in un <strong>RouteCollection</strong>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$appConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppConfiguration</span><span class="p">();</span>
+<span class="nv">$appConfiguration</span>
+  <span class="o">-&gt;</span> <span class="na">addConfigurationPath</span><span class="p">(</span><span class="s1">'path/to/config/dir'</span><span class="p">);</span>
+<span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nv">$appConfiguration</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Bisogna istanziare il matcher e passarlo all’applicazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">setMatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">loader</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">import</span><span class="p">(</span><span class="s1">'path/to/config/file.route.php'</span><span class="p">),</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)));</span>
+
+</code></pre></div></div>
+
+<h2 id="file-di-configurazione-in-yaml">File di configurazione in YAML</h2>
+
+<p>E’ possibile creare un file di configurazione scritto in YAML che venga processato in automatico
+dall’applicazione.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">router</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">group</span>
+    <span class="na">pattern</span><span class="pi">:</span> <span class="s">/pathgroup</span>
+    <span class="na">address</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">route</span>
+        <span class="na">pattern</span><span class="pi">:</span> <span class="s">/path</span>
+        <span class="na">data</span><span class="pi">:</span>
+          <span class="na">controller</span><span class="pi">:</span> <span class="s">controller@action</span>
+
+</code></pre></div></div>
+
+<p>Per utilizzare questo file di configurazione bisogna settare il path della cartella
+contenente i file di configurazione.</p>
+
+<p>E’ importante che il file abbia estensione .route.yaml cosi’ che l’applicazione
+possa convertire il contenuto automaticamente in un <strong>RouteCollection</strong>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$appConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppConfiguration</span><span class="p">();</span>
+<span class="nv">$appConfiguration</span>
+  <span class="o">-&gt;</span> <span class="na">addConfigurationPath</span><span class="p">(</span><span class="s1">'path/to/config/dir'</span><span class="p">);</span>
+<span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nv">$appConfiguration</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Bisogna istanziare il matcher e passarlo all’applicazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">setMatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">loader</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">import</span><span class="p">(</span><span class="s1">'path/to/config/file.route.yaml'</span><span class="p">),</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)));</span>
+
+</code></pre></div></div>
+
+    <div class="top-30"></div>
+    <hr>
+    <div class="top-30"></div>
+    <div class="row">
+      
+        <div class="col-sm"><a href="/LoopHPWebSite/docs/Template.html"><button type="button" class="btn btn-outline-dark"><i class="material-icons">navigate_before</i></button></a></div>
+      
+      
+        <div class="col-sm"><a href="/LoopHPWebSite/docs/Gestione%20file%20di%20configurazione.html"><button type="button" class="btn btn-outline-dark"><i class="material-icons">navigate_next</i></button></a></div>
+      
+    </div>
+  </div>
+</main>
+<script src="/LoopHPWebSite/bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
+<script src="/LoopHPWebSite/bower_components/bootstrap/dist/js/bootstrap.bundle.js" charset="utf-8"></script>
+
+  </body>
+
+</html>

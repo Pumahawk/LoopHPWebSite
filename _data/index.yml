@@ -1,0 +1,9 @@
+page-list: 
+  - id: /docs/Home
+  - id: /docs/Contribuire alla libreria
+  - id: /docs/Organizzazione del codice sorgente
+  - id: /docs/Configurazione oggetto App
+  - id: /docs/Creare un applicazione
+  - id: /docs/Template
+  - id: /docs/Routing
+  - id: /docs/Gestione file di configurazione

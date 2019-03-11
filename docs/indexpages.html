@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>LoopHP | Guida alla creazione di applicazioni web e siti internet con la libreria LoopHP.</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="LoopHP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Guida alla creazione di applicazioni web e siti internet con la libreria LoopHP." />
+<meta property="og:description" content="Guida alla creazione di applicazioni web e siti internet con la libreria LoopHP." />
+<link rel="canonical" href="/LoopHPWebSite/indexpages.html" />
+<meta property="og:url" content="/LoopHPWebSite/indexpages.html" />
+<meta property="og:site_name" content="LoopHP" />
+<script type="application/ld+json">
+{"description":"Guida alla creazione di applicazioni web e siti internet con la libreria LoopHP.","@type":"WebPage","url":"/LoopHPWebSite/indexpages.html","headline":"LoopHP","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/LoopHPWebSite/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/LoopHPWebSite/feed.xml" title="LoopHP" /></head>
+<link rel="stylesheet" href="/LoopHPWebSite/assets/css/style.css"><body>
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    
+
+  <h1 id="wiki-loophp">Wiki LoopHP</h1>
+
+<p>LoopHP e’ una libreria general purpose per la creazione di applicazioni web utilizzano un pattern MVC.</p>
+
+<p>Ispirata al framework Symfony, di cui usa molti componenti, e’ possibile creare nuove applicazioni oppure 
+estenderne di gia’ esistenti configurando correttamente LoopHP per aggiungere nuove funzionalita’.</p>
+
+<p>LoopHP garantisce un certo livello di trasportabilita’. Qualsiasi estensione creata puo’ funzionare su qualsiasi
+applicazione indipendentemente dalla piattaforma.</p>
+
+<h1 id="indice-wiki">Indice Wiki</h1>
+
+<ul>
+  <li><strong><a href="/LoopHPWebSite/docs/Contribuire%20alla%20libreria.html">Contribuire alla libreria</a></strong></li>
+  <li><strong><a href="/LoopHPWebSite/docs/Organizzazione%20del%20codice%20sorgente.html">Organizzazione del codice sorgente</a></strong></li>
+  <li><strong><a href="/LoopHPWebSite/docs/Configurazione%20oggetto%20App.html">Configurazione oggetto App</a></strong></li>
+  <li><strong><a href="/LoopHPWebSite/docs/Creare%20un%20applicazione.html">Creare un’applicazione</a></strong></li>
+  <li><strong><a href="/LoopHPWebSite/docs/Template.html">Usare i template</a></strong></li>
+  <li><strong><a href="/LoopHPWebSite/docs/Routing.html">Utilizzare il routing</a></strong></li>
+  <li><strong><a href="/LoopHPWebSite/docs/Gestione%20file%20di%20configurazione.html">Gestione file di configurazione</a></strong></li>
+</ul>
+
+  <hr>
+
+
+  <h1 id="come-contribuire-alla-libreria-loophp">Come contribuire alla libreria LoopHP</h1>
+
+<p>E’ possibile contribuire alla creazione di LoopHP utilizzando le funzionalita’
+di github.</p>
+
+<p>Gli Issues e i Pull request creati verranno presi in considerazione.</p>
+
+<h2 id="contribuire-a-loophp">Contribuire a LoopHP</h2>
+
+<p>Se non si e’ pratici all’utilizzo di Git, della piattaforma Github e di Composer
+spieghero’ brevemente come scaricare il codice sorgente e installare le dipendenze.</p>
+
+<h3 id="software-necessari">Software necessari</h3>
+
+<ul>
+  <li>Git<br />
+Applicazione necessaria per potersi sincronizzare con il codice sorgente.<br />
+E’ possibile scaricarlo dal sito ufficiale: <a href="https://git-scm.com/">git-scm.com</a>.</li>
+  <li>Composer<br />
+Applicazione necessaria per risolvere le dipendenze di LoopHP con altre librerie
+in php.<br />
+E’ possibile scaricarlo dal sito ufficiale: <a href="https://getcomposer.org/">getcomposer.org</a>.</li>
+</ul>
+
+<h3 id="scaricare-il-codice-sorgente-e-installare-le-dipendenze">Scaricare il codice sorgente e installare le dipendenze</h3>
+
+<p>Scaricare il codice sorgente utilizzando Git.</p>
+
+<p><code class="highlighter-rouge">git clone https://github.com/Pumahawk/LoopHP.git</code></p>
+
+<p>Spostarsi all’interno della cartella principale</p>
+
+<p><code class="highlighter-rouge">cd LoopHP</code></p>
+
+<p>Installare le dipendence con composer</p>
+
+<p><code class="highlighter-rouge">composer install</code></p>
+
+<h3 id="note">Note</h3>
+
+<p>Dopo aver modificato il codice sorgente accertarsi che i test non restituiscano 
+errori utilizzando PhpUnit con il seguente comando:</p>
+
+<p><code class="highlighter-rouge">./vendor/bin/phpunit</code></p>
+
+<p>Consiglio di utilizzare un editor di testo semplice come i seguenti:</p>
+<ul>
+  <li><a href="https://atom.io/">Atom</a></li>
+  <li><a href="https://notepad-plus-plus.org/">Notepad++</a></li>
+</ul>
+
+
+  <hr>
+
+
+  <h1 id="organizzazione-del-codice-sorgente">Organizzazione del codice sorgente</h1>
+
+<p>Il contenuto della repository si divide in 3 cartelle:</p>
+<ul>
+  <li><strong>src</strong></li>
+  <li><strong>test</strong></li>
+  <li><strong>resources</strong></li>
+</ul>
+
+<h2 id="src">src</h2>
+
+<p>Contiene il cuore del codice sorgente. In questa cartella sono contenute le classi
+principali di LoopHP come:</p>
+
+<ul>
+  <li><a href="https://github.com/Pumahawk/LoopHP/blob/master/src/App.php">App</a></li>
+  <li><a href="https://github.com/Pumahawk/LoopHP/blob/master/src/AppConfiguration.php">AppConfiguration</a></li>
+  <li><a href="https://github.com/Pumahawk/LoopHP/blob/master/src/ControllerData.php">ControllerData</a></li>
+  <li><a href="https://github.com/Pumahawk/LoopHP/blob/master/src/Matchable.php">Matchable</a></li>
+</ul>
+
+<p>Queste classi sono le principali di LoopHP ma da sole non bastano alla realizzazione
+di una applicazione.</p>
+
+<p>Per facilitare la creazione e la configurazione di una applicazione sono state 
+create componenti aggiuntive che possono aiutare il programmatore nella realizzazione
+di applicazioni comuni come applicazioni web o semplici pagine statiche.</p>
+
+<p>Non e’ obbligatorio conoscere tutti i componenti per poter lavorare con LoopHP
+ma e’ fortemente consigliato informarsi sul loro funzionamento.</p>
+
+<p>I componenti messi a disposizione dello sviluppatore sono:</p>
+
+<ul>
+  <li><strong>Config</strong><br />
+Componente che aiuta nell’accesso e organizzazione dei file di configurazione
+di una applicazione.</li>
+  <li><strong>Controller</strong><br />
+Componente che facilita la creazione di controller per una applicazione.</li>
+  <li><strong>Matchable</strong><br />
+Componente che mette a disposizione delle implementazioni utili dell’interfaccia
+Matchable.</li>
+  <li><strong>Routing</strong><br />
+Componente che facilita la creazione dei RouterCollection di Synfony che si interfacciano
+facilmente con LoopHP.</li>
+</ul>
+
+<h2 id="test">test</h2>
+
+<p>Cartella contenente i test delle varie classi. Sono presenti le cartella <strong>App</strong>
+e <strong>Code</strong>.</p>
+
+<p>La cartella <strong>App</strong> contiene semplici esempi sulla creazione di una applicazione mentre 
+la cartella <strong>Code</strong> contiene test sul codice sorgente.</p>
+
+<h2 id="resources">resources</h2>
+
+<p>Contiene file e configurazioni utili per lo sviluppo della libreria. Al momento 
+contiene soltanto la cartella test con all’interno file di configurazioni utilizzati dai test.</p>
+
+  <hr>
+
+
+  <h1 id="configurazione-oggetto-app">Configurazione oggetto App</h1>
+
+<p>La classe App e’ l’elemento principale di LoopHP e va istanziato correttamente.</p>
+
+<p>LoopHP permette di interfacciarsi con librerie create dall’utente, file di configurazione
+e template, tutti in cartelle diverse. Per permette questo bisogna creare un oggetto 
+di tipo <strong>App</strong> passandogli un altro oggetto importante di configurazione di tipo
+<strong>AppConfiguration</strong> che permette di configurare in maniera semplice l’<strong>App</strong>.</p>
+
+<p>Per fare un esempio di come si puo’ instanziare una classe App e’ utile vedere
+una parte di codice nel file <code class="highlighter-rouge">test/App/Exemple/SimpleApplicationTest.php</code>.</p>
+
+<p>Il metodo <code class="highlighter-rouge">testConfigurationApp</code> crea un oggetto di tipo App configurandolo in una
+maniera particolare.</p>
+
+<p>Nella prima parte del metodo vediamo che viene creato un oggetto di tipo <strong>AppConfiguration</strong>
+al quale vengono passati i percorsi utili per i test di questa classe.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$appConfig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppConfiguration</span><span class="p">();</span>
+    <span class="nv">$appConfig</span> 
+      <span class="o">-&gt;</span> <span class="na">setTemplate</span><span class="p">(</span><span class="nv">$baseDataTestPath</span><span class="o">.</span><span class="s1">'/template'</span><span class="p">)</span>
+      <span class="o">-&gt;</span> <span class="na">addApi</span><span class="p">(</span><span class="s1">'C\\'</span><span class="p">,</span> <span class="nv">$baseDataTestPath</span><span class="o">.</span><span class="s1">'/controller'</span><span class="p">)</span>
+      <span class="o">-&gt;</span> <span class="na">setComposer</span><span class="p">(</span><span class="k">require</span><span class="p">(</span><span class="nx">__DIR__</span><span class="o">.</span><span class="s1">'/../../../vendor/autoload.php'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>In questo esempio viene esclusa la gestione dei file di configurazione ma soltanto
+la creazione dei <strong>Template</strong>, la creazione di un <strong>Controller</strong>.</p>
+
+<p>Bisogna notare il passaggio del percorso dell’autoload di composer, passaggio 
+obbligatorio per la configurazione dell’oggetto.</p>
+
+<p>Il passaggio successivo e’ la creazione dell’<strong>UrlMatcher</strong>. Oggetto utile a LoopHP
+per capire in base al contesto quale metodo del controllore lanciare. UrlMatcher non
+e’ l’unico Matcher disponibile e usiamo questo soltanto perche’ in questo momento
+e’ utile per spiegare il funzionamento di LoopHP.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$routeGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteGroup</span><span class="p">();</span>
+    <span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">,</span> <span class="s1">'/home'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ControllerData</span><span class="p">(</span><span class="s1">'C\\Controller'</span><span class="p">,</span> <span class="s1">'home'</span><span class="p">)));</span>
+    <span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">'homeTemplate'</span><span class="p">,</span> <span class="s1">'/homeTemplate'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ControllerData</span><span class="p">(</span><span class="s1">'C\\Controller'</span><span class="p">,</span> <span class="s1">'homeTemplate'</span><span class="p">)));</span>
+    <span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">'productTemplate'</span><span class="p">,</span> <span class="s1">'/productTemplate'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ControllerData</span><span class="p">(</span><span class="s1">'C\\Controller'</span><span class="p">,</span> <span class="s1">'productTemplate'</span><span class="p">)));</span>
+    <span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">'dinamicOutput'</span><span class="p">,</span> <span class="s1">'/key/{number}'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ControllerData</span><span class="p">(</span><span class="s1">'C\\Controller'</span><span class="p">,</span> <span class="s1">'dinamicOutput'</span><span class="p">),</span> 
+    <span class="p">[</span>
+      <span class="s1">'number'</span> <span class="o">=&gt;</span> <span class="s1">'[0-9]+'</span>
+    <span class="p">]));</span>
+    
+    <span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">getRouteCollection</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">'/'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Questo non e’ il metodo piu’ semplice per la creazione dell’applicazione ma e’
+ricco di funzionalita’.</p>
+
+<p>E’ utile per imparare avere una visione globale della classe Controller presente nel file
+<code class="highlighter-rouge">resources/test/exemple/simple_application/controller/Controller.php</code> .</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">namespace</span> <span class="nx">C</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">LoopHP\Controller\BaseController</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Controller</span> <span class="k">extends</span> <span class="nx">BaseController</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">(){</span><span class="o">...</span><span class="p">}</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">homeTemplate</span><span class="p">()</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">productTemplate</span><span class="p">()</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">dinamicOutput</span><span class="p">()</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Da notare i riferimenti ai file passati durante la creazione dell’oggetto di configurazione
+e dei riferimenti alla classe e ai metodi durante la configurazione del router.</p>
+
+<p>L’ultimo passaggio per la creazione dell’oggetto App e’ istanziarlo e inizializzarlo.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nv">$appConfig</span><span class="p">,</span> <span class="nv">$matcher</span><span class="p">);</span>
+  <span class="nv">$app</span> <span class="o">-&gt;</span> <span class="na">setApiLoader</span><span class="p">();</span>
+  
+</code></pre></div></div>
+
+<p>Al costruttore viene passato l’oggetto di configurazione e il matcher, ma un 
+metodo fondamentale e’ il richiamo al metodo <code class="highlighter-rouge">setApiLoader</code> che richiamando 
+<strong>Composer</strong> aggiunge le api personalizzate al suo autoload.</p>
+
+<p>Questo ultimo passaggio e’ fondamentale e spesso dimenticarlo e’ la causa di 
+numerosi problemi in esecuzione.</p>
+
+  <hr>
+
+
+  <h1 id="creare-unapplicazione">Creare un’applicazione</h1>
+
+<p>Nella creazione di un’applicazione possiamo decidere l’organizzazione dei 
+file. E’ possibile che a seconda delle limitazioni imposte dalla piattaforma che
+stiamo utilizzando non sia possibile utilizzare sempre lo stesso schema per 
+tutte le nostre applicazioni. Questo puo’ capitare soprattutto in applicazioni
+gia’ iniziate alle quali dobbiamo apportare delle modifiche.</p>
+
+<p>In questa guida immaginiamo di realizzare un’applicazione web per la visualizzazione
+di un sito internet, prendendo spunto dal file di test <code class="highlighter-rouge">test/App/Exemple/SimpleApplicationTest.php</code>.</p>
+
+<p>A differenza della guida sulla <a href="Configurazione-oggetto-App">Configurazione dell’oggetto App</a> mostriamo anche come 
+l’organizzazione del controller e del template.</p>
+
+<p>Possiamo immaginare di voler strutturare la nostra applicazione in questo modo,
+dove <em>index.php</em> e’ la home del sito che stiamo creando.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/
+├── index.php
+└── src
+    ├── api
+    │   └── controller
+    │       └── Controller.php
+    └── template
+        └── home.php
+
+</code></pre></div></div>
+
+<p>Una volta decisa la struttura della nostra applicazione non resta che scaricare le librerie
+utilizzando composer.</p>
+
+<p>Spostiamoci dentro la cartella src</p>
+
+<p><code class="highlighter-rouge">cd src</code></p>
+
+<p>Creiamo il file <strong>composer.json</strong> e aggiungiamo il seguente contenuto.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"repositories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vcs"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/Pumahawk/LoopHP.git"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Pumahawk/LoopHP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev-master"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p><strong>Attenzione!! Durante la scrittura di questa wiki LoopHP non e’ ancora presente
+su <a href="https://packagist.org/">Packagist</a>.</strong></p>
+
+<p>Avviamo composer e scarichiamo le librerie.</p>
+
+<p><code class="highlighter-rouge">composer install</code></p>
+
+<p>Adesso la struttura delle cartelle dovrebbe essere simile alla seguente struttura:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/
+├── index.php
+└── src
+    ├── api
+    │   └── controller
+    │       └── Controller.php
+    ├── composer.json
+    ├── template
+    │   └── home.php
+    └── vendor
+        └── autoload.php
+
+</code></pre></div></div>
+
+<p>Rimangono soltanto da modificare i seguenti file:</p>
+
+<ul>
+  <li><em>index.php</em></li>
+  <li><em>src/template/home.php</em></li>
+  <li><em>src/api/controller/Controller.php</em></li>
+</ul>
+
+<p><strong>src/template/home.php</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Ciao mondo!<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    Ciao mondo!
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+</code></pre></div></div>
+
+<p><strong>src/api/controller/Controller.php</strong></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nx">C</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">LoopHP\Controller\BaseController</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Controller</span> <span class="k">extends</span> <span class="nx">BaseController</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">(){</span>
+    <span class="k">echo</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">tEngine</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">render</span><span class="p">(</span><span class="s1">'home.php'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<p><strong>index.php</strong></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">require</span> <span class="nx">__DIR__</span><span class="o">.</span><span class="s1">'/src/vendor/autoload.php'</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">LoopHP\App</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">LoopHP\AppConfiguration</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">LoopHP\Matchable\StaticMatch</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">LoopHP\ControllerData</span><span class="p">;</span>
+
+<span class="nv">$srcDir</span> <span class="o">=</span> <span class="nx">__DIR__</span><span class="o">.</span><span class="s1">'/src'</span><span class="p">;</span>
+
+<span class="nv">$appConfig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppConfiguration</span><span class="p">();</span>
+    <span class="nv">$appConfig</span> 
+      <span class="o">-&gt;</span> <span class="na">setTemplate</span><span class="p">(</span><span class="nv">$srcDir</span><span class="o">.</span><span class="s1">'/template'</span><span class="p">)</span>
+      <span class="o">-&gt;</span> <span class="na">addApi</span><span class="p">(</span><span class="s1">'C\\'</span><span class="p">,</span> <span class="nv">$srcDir</span><span class="o">.</span><span class="s1">'/api/controller'</span><span class="p">)</span>
+      <span class="o">-&gt;</span> <span class="na">setComposer</span><span class="p">(</span><span class="k">require</span><span class="p">(</span><span class="nx">__DIR__</span><span class="o">.</span><span class="s1">'/src/vendor/autoload.php'</span><span class="p">));</span>
+
+<span class="nv">$controllerData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ControllerData</span><span class="p">(</span><span class="s1">'C\\Controller'</span><span class="p">,</span> <span class="s1">'home'</span><span class="p">);</span>
+<span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StaticMatch</span><span class="p">(</span><span class="nv">$controllerData</span><span class="p">);</span>
+
+<span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nv">$appConfig</span><span class="p">,</span> <span class="nv">$matcher</span><span class="p">);</span>
+<span class="nv">$app</span> <span class="o">-&gt;</span> <span class="na">setApiLoader</span><span class="p">();</span>
+
+<span class="nv">$app</span> <span class="o">-&gt;</span> <span class="na">start</span><span class="p">();</span>
+
+</code></pre></div></div>
+
+<p>Nel file <em>index.php</em> e’ stato utilizzato <code class="highlighter-rouge">StaticMatch</code> perche’ non richiede particolari
+configurazioni del server.</p>
+
+  <hr>
+
+
+  <h1 id="creazione-e-gestione-template">Creazione e gestione Template</h1>
+
+<p>I template sono fondamentali per cambiare la logica di programmazione dall’interfaccia
+grafica. Soprattutto nelle applicazioni web risulta essere molto utile scrivere 
+codice HTML in file separati.</p>
+
+<p>Con LoopHP e’ possibile specificare la cartella contenente i file che dovranno funzionare
+da template.</p>
+
+<p>Il template non e’ soltanto un testo scritto in html ma molto di piu’. Per ogni
+tipo di template c’e’ bisogno di TemplateEngine in grado di elaborarlo e restituire 
+un output.</p>
+
+<p>Il template engine utilizzato in LoopHP e’ PHPEngine di Symfony ed e’ possibile 
+leggere la <a href="https://symfony.com/doc/current/components/templating.html">documentazione ufficiale</a>.</p>
+
+<p>E’ possibile aggiungere altri template engine con il metodo <code class="highlighter-rouge">App::addTemplateEngine</code>,
+e’ importante che tutti i template engine aggiunti implementino l’interfaccia
+<a href="https://github.com/symfony/templating/blob/master/EngineInterface.php">EngineInterface</a>.</p>
+
+<h2 id="usare-i-template">Usare i template</h2>
+
+<p>Non bisogna dimenticarsi di configurare correttamente l’applicazione per permettere
+l’accesso ai template usando il metodo <code class="highlighter-rouge">AppConfiguration::setTemplate</code>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Impostare il percorso del template nella configurazione dell'applicazione</span>
+<span class="nv">$appConfiguration</span> <span class="o">-&gt;</span> <span class="na">setTemplate</span><span class="p">(</span><span class="s1">'path/to/template/folder'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Dopo aver istanziato l’applicazione possiamo aggiungere altri template engine.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># $templateEngine implementa EngineInterface</span>
+<span class="nv">$app</span> <span class="o">-&gt;</span> <span class="na">addTemplateEngine</span><span class="p">(</span><span class="nv">$newTemplateEngine</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>E’ possibile utilizzare il template engine all’interno del controllore</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">tEngine</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">render</span><span class="p">(</span><span class="s1">'template.php'</span><span class="p">,</span> <span class="nv">$extraData</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="creare-i-template">Creare i template</h2>
+
+<p>Per una guida approfondita consiglio di leggere l’articolo <a href="https://symfony.com/doc/current/templating/PHP.html">How to Use PHP instead of Twig for Templates</a>.</p>
+
+<p>La comodita’ nell’utilizzare un template in php sta nell’utilizzare un linguaggio
+di cui abbiamo gia’ dimestichezza. Possiamo utilizzare l’html e rendere la pagina dinamica
+con php.</p>
+
+<p>Esistono anche delle funzionalita’ aggiuntive come la possibilita’ di estendere 
+altri template ed e’ tutto descritto nell’articolo riportato sopra.</p>
+
+<p>Una funzionalita’ molto utile e semplice e’ il passaggio di informazioni dal controller.</p>
+
+<p>Nel momento in cui su usa <code class="highlighter-rouge">EngineInterface::render</code> si puo’ passare un array
+e le variabili al suo interno possono essere riutilizzare.</p>
+
+<p>Per saperne di piu’ e’ possibile leggere la documentazione sull’articolo <a href="https://symfony.com/doc/current/components/templating.html">The Templating Component</a></p>
+
+  <hr>
+
+
+  <h1 id="configurazione-routing">Configurazione Routing</h1>
+
+<p>Il <strong>Routing</strong> e’ molto utilizzato nelle applicazioni web e permette di configurare
+le richieste per richiamare automaticamente i controller passando dati aggiuntivi.</p>
+
+<p>Ci sono diversi modi per configurare i <strong>Route</strong> dell’applicazione:</p>
+
+<ul>
+  <li>Codice PHP</li>
+  <li>File di configurazione in PHP</li>
+  <li>File di configurazione in YAML</li>
+</ul>
+
+<p>Per la realizzazione di questa funzionalita’ e’ stato utilizzato <a href="https://symfony.com/doc/current/components/routing.html">The Routing Component</a>
+di <strong>Symfony</strong>.</p>
+
+<p>Per utilizzare questo tipo di configurazione con <strong>LoopHP</strong> si puo’ utilizzare 
+la classe <a href="https://github.com/Pumahawk/LoopHP/blob/master/src/Matchable/UrlMatcher.php">UrlMatcher</a>.</p>
+
+<p><code class="highlighter-rouge">UrlMatcher</code> richiede un <a href="https://api.symfony.com/2.3/Symfony/Component/Routing/RouteCollection.html">RouteCollection</a> di Symfony, quindi possiamo crearne uno seguendo il metodo fornito dalla documentazione
+di Symfony oppure possiamo utilizzare <a href="https://github.com/Pumahawk/LoopHP/blob/master/src/Routing/RouteGroup.php">RouteGroup</a> di
+LoopHP molto piu’ facile da utilizzare con LoopHP.</p>
+
+<h2 id="codice-php">Codice PHP</h2>
+
+<p>E’ il metodo piu’ veloce e non richiede il supporto di file aggiuntivi ma non e’
+il piu’ indicato per applicazioni di grandi dimensioni.</p>
+
+<p>Come prima cosa creiamo un <code class="highlighter-rouge">RouteGroup</code> a cui passeremo i <a href="https://github.com/Pumahawk/LoopHP/blob/master/src/Routing/Route.php">Route</a> di LoopHP.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$routeGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RouteGroup</span><span class="p">();</span>
+<span class="nv">$routeToHome</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">,</span> <span class="s1">'/home'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">ControllerData</span><span class="p">(</span><span class="s1">'C\\Controller'</span><span class="p">,</span> <span class="s1">'home'</span><span class="p">));</span>
+<span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">add</span><span class="p">(</span><span class="nv">$routeToHome</span><span class="p">);</span>
+
+<span class="c1"># RouteGroup::getRouteCollection converte l'oggetto in un RouteCollection</span>
+<span class="c1"># RequestContext e' una classe di Symfony</span>
+<span class="nv">$matcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$routeGroup</span> <span class="o">-&gt;</span> <span class="na">getRouteCollection</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">'/'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="file-di-configurazione-in-php">File di configurazione in PHP</h2>
+
+<p>E’ possibile creare un file di configurazione che venga processato in automatico
+dall’applicazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">[</span>
+  <span class="s1">'router'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'group'</span><span class="p">,</span>
+      <span class="s1">'pattern'</span> <span class="o">=&gt;</span> <span class="s1">'/pathgroup'</span><span class="p">,</span>
+      <span class="s1">'address'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'route'</span><span class="p">,</span>
+          <span class="s1">'pattern'</span> <span class="o">=&gt;</span> <span class="s1">'/path'</span><span class="p">,</span>
+          <span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'controller'</span> <span class="o">=&gt;</span> <span class="s1">'controller@action'</span>
+          <span class="p">]</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>Per utilizzare questo file di configurazione bisogna settare il path della cartella
+contenente i file di configurazione.</p>
+
+<p>E’ importante che il file abbia estensione .route.php cosi’ che l’applicazione
+possa convertire il contenuto automaticamente in un <strong>RouteCollection</strong>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$appConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppConfiguration</span><span class="p">();</span>
+<span class="nv">$appConfiguration</span>
+  <span class="o">-&gt;</span> <span class="na">addConfigurationPath</span><span class="p">(</span><span class="s1">'path/to/config/dir'</span><span class="p">);</span>
+<span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nv">$appConfiguration</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Bisogna istanziare il matcher e passarlo all’applicazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">setMatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">loader</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">import</span><span class="p">(</span><span class="s1">'path/to/config/file.route.php'</span><span class="p">),</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)));</span>
+
+</code></pre></div></div>
+
+<h2 id="file-di-configurazione-in-yaml">File di configurazione in YAML</h2>
+
+<p>E’ possibile creare un file di configurazione scritto in YAML che venga processato in automatico
+dall’applicazione.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">router</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">group</span>
+    <span class="na">pattern</span><span class="pi">:</span> <span class="s">/pathgroup</span>
+    <span class="na">address</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">route</span>
+        <span class="na">pattern</span><span class="pi">:</span> <span class="s">/path</span>
+        <span class="na">data</span><span class="pi">:</span>
+          <span class="na">controller</span><span class="pi">:</span> <span class="s">controller@action</span>
+
+</code></pre></div></div>
+
+<p>Per utilizzare questo file di configurazione bisogna settare il path della cartella
+contenente i file di configurazione.</p>
+
+<p>E’ importante che il file abbia estensione .route.yaml cosi’ che l’applicazione
+possa convertire il contenuto automaticamente in un <strong>RouteCollection</strong>.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$appConfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppConfiguration</span><span class="p">();</span>
+<span class="nv">$appConfiguration</span>
+  <span class="o">-&gt;</span> <span class="na">addConfigurationPath</span><span class="p">(</span><span class="s1">'path/to/config/dir'</span><span class="p">);</span>
+<span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nv">$appConfiguration</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Bisogna istanziare il matcher e passarlo all’applicazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">setMatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">UrlMatcher</span><span class="p">(</span><span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">app</span> <span class="o">-&gt;</span> <span class="na">loader</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">import</span><span class="p">(</span><span class="s1">'path/to/config/file.route.yaml'</span><span class="p">),</span> <span class="k">new</span> <span class="nx">RequestContext</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)));</span>
+
+</code></pre></div></div>
+
+  <hr>
+
+
+  <h1 id="gestione-dei-file-di-configurazione">Gestione dei file di configurazione</h1>
+
+<p>Con LoopHP e’ molto facile gestire i file di configurazione.</p>
+
+<p>Questa funzionalita’ e’ stata realizzata utilizzando il componente 
+<a href="https://symfony.com/doc/current/components/routing.html">The Routing Component</a> di Symfony.</p>
+
+<p>Una volta configurata l’applicazione e’ possibile accedere
+ai file di configurazione direttamente dal controllore.</p>
+
+<p>Settiamo correttamente il percorso ai file di configurazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppConfiguration</span><span class="p">();</span>
+<span class="nv">$app</span> <span class="o">-&gt;</span> <span class="na">addConfigurationPath</span><span class="p">(</span><span class="nx">__DIR__</span><span class="o">.</span><span class="s1">'path/to/config/dir'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>All’interno di un metodo di un controllore e’ possibile utilizzare il metodo
+<code class="highlighter-rouge">BaseController::config</code> per ottenere il <code class="highlighter-rouge">Loader</code> in grado di leggere i file di configurazione.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$config</span> <span class="o">=</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">config</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">load</span><span class="p">(</span><span class="s1">'path/to/config/file'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Il loader di default e’ in grado di leggere automaticamente i file di configurazione
+con le seguenti estensioni.</p>
+
+<ul>
+  <li>.yaml</li>
+  <li>.php</li>
+  <li>.route.yaml</li>
+  <li>.route.php</li>
+</ul>
+
+<p>E’ possibile creare dei Loader aggiuntivi e aggiungerli alla applicazione.</p>
+
+<h2 id="creare-dei-loader-personalizzati">Creare dei loader personalizzati</h2>
+
+<p>Per imparare a creare dei Loader consiglio di leggere la documentazione
+sul componente <a href="https://symfony.com/doc/current/components/routing.html">The Routing Component</a> di Symfony.</p>
+
+<p>Tramite il metodo <code class="highlighter-rouge">App::getConfigLoader</code> si ottiene l’oggetto <a href="https://api.symfony.com/3.1/Symfony/Component/Config/Loader/LoaderResolver.html">LoaderResolver</a>
+al quale e’ possibile aggiungere dei Loader personalizzati tramite il metodo 
+<code class="highlighter-rouge">LoaderResolver::addLoader</code>.</p>
+
+<p>Per creare un loader bisogna implementare l’interfaccia <a href="https://api.symfony.com/3.1/Symfony/Component/Config/Loader/LoaderInterface.html">LoaderInterface</a>.</p>
+
+<p>Dopo aver creato il loader personalizzato si deve aggiungere all’applicazione direttamente
+dal metodo <code class="highlighter-rouge">App::addConfigLoader</code></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$app</span> <span class="o">-&gt;</span> <span class="na">addConfigLoader</span><span class="p">(</span><span class="k">new</span> <span class="nx">PersonalLoader</span><span class="p">());</span>
+</code></pre></div></div>
+
+  <hr>
+
+  </div>
+</main>
+  </body>
+
+</html>

@@ -1,0 +1,11 @@
+<div class="top-30"></div>
+<h2><i class="title-icon material-icons">format_list_bulleted</i>{{site.data.home.indexDocs.title}}</h2>
+<div class="index-box">
+  {% for doInList in site.data.index.page-list %}
+  {% assign doc = site.docs | where: "id", doInList.id | first %}
+    <div class="index-item">
+      {{id-list}}
+      <a href='{{doc.url | relative_url}}'>{{doc.title}}</a>
+    </div>
+  {% endfor %}
+</div>

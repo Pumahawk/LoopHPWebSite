@@ -1,0 +1,9 @@
+---
+layout: page
+---
+
+{% for docInIndex in site.data.index.page-list %}
+{% assign doc =  site.docs | where: "id", docInIndex.id | first%}
+  {{doc.content}}
+  <hr>
+{% endfor %}

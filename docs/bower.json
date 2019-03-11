@@ -1,0 +1,23 @@
+{
+  "name": "jelly-wiki-manager",
+  "homepage": "https://github.com/Pumahawk/jekyll-wiki-manager",
+  "authors": [
+    "Lorenzo Gandino <lorenzoga94@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.3.1",
+    "material-design-icons": "^3.0.1"
+  }
+}

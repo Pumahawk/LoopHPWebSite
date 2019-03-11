@@ -1,0 +1,32 @@
+$border-color: #e1e4e8;
+$border-width: 1px;
+$border-radius: 5px;
+
+.top-30 {
+  padding: {
+    top: 30px;
+  }
+}
+
+.index-box {
+  border: {
+    style: solid;
+    color: $border-color;
+    width: $border-width;
+    radius: $border-radius;
+  };
+  
+  .index-item {
+    padding: {
+      top: 5px;
+      right: 5px;
+      bottom: 5px;
+      left: 5px;
+    };
+    border: {
+      style: solid;
+      color: $border-color;
+      width: $border-width;
+    }
+  }
+}

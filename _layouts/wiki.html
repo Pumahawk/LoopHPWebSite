@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{%- include header.html -%}
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    {{ content }}
+    <div class="top-30"></div>
+    <hr>
+    <div class="top-30"></div>
+    <div class="row">
+      {% if page.previus_doc %}
+        <div class="col-sm"><a href="{{page.previus_doc | relative_url}}"><button type="button" class="btn btn-outline-dark"><i class="material-icons">navigate_before</i></button></a></div>
+      {% endif %}
+      {% if page.next_doc %}
+        <div class="col-sm"><a href="{{page.next_doc | relative_url}}"><button type="button" class="btn btn-outline-dark"><i class="material-icons">navigate_next</i></button></a></div>
+      {% endif %}
+    </div>
+  </div>
+</main>
+{% include footer-script.html %}

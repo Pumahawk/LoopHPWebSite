@@ -1,0 +1,9 @@
+<div class="top-30"></div>
+<h2><i class="title-icon material-icons">format_list_bulleted</i>All Guide</h2>
+<div class="index-box">
+  {% for guide in site.guides %}
+    <div class="index-item">
+      <a href="{{guide.url | relative_url}}">{{guide.title}}</a>
+    </div>
+  {% endfor %}
+</div>

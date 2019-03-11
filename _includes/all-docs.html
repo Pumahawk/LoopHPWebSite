@@ -1,0 +1,9 @@
+<div class="top-30"></div>
+<h2><i class="title-icon material-icons">format_list_bulleted</i>{{site.data.home.allDocs.title}}</h2>
+<div class="index-box">
+  {% for doc in site.docs %}
+    <div class="index-item">
+      <a href="{{doc.url | relative_url}}">{{doc.title}}</a>
+    </div>
+  {% endfor %}
+</div>

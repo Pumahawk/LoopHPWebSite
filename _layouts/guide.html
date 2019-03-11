@@ -1,0 +1,14 @@
+---
+layout: wiki
+---
+<h2><i class="title-icon material-icons">format_list_bulleted</i>{{page.title}}</h2>
+{{ content }}
+
+<div class="index-box">
+  {% for docK in page.docs %}
+  {% assign doc = site.docs | where: "id", docK | first%}
+    <div class="index-item">
+      <a href="{{doc.url | relative_url}}">{{doc.title}}</a>
+    </div>
+  {% endfor %}
+</div>

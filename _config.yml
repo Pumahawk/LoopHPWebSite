@@ -1,0 +1,86 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: LoopHP
+email: ""
+description: >- # this means to ignore newlines until "baseurl:"
+  Guida alla creazione di applicazioni web e siti internet con la libreria LoopHP.
+baseurl: "/LoopHPWebSite" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+ - Gemfile
+ - Gemfile.lock
+ - node_modules
+ - vendor/bundle/
+ - vendor/cache/
+ - vendor/gems/
+ - vendor/ruby/
+ - docs
+# Ignore bootstrap part that are not important to public
+ - bower_components/bootstrap/site
+ - bower_components/bootstrap/build
+ - bower_components/bootstrap/js
+ - bower_components/bootstrap/nuget
+ - bower_components/bootstrap/scss
+ - bower_components/bootstrap/dist/css
+ - bower_components/bootstrap/*.md
+ - bower_components/bootstrap/*.json
+ - bower_components/bootstrap/*.lock
+ - bower_components/bootstrap/Gemfile
+ - bower_components/bootstrap/CNAME
+ - bower_components/bootstrap/package.js
+# Ignore jquery part that are not important to public
+ - bower_components/jquery/external
+ - bower_components/jquery/src
+ - bower_components/jquery/*.txt
+ - bower_components/jquery/*.json
+ - bower_components/jquery/*.md
+# Ignore material-design-icons
+ - bower_components/material-design-icons/action
+ - bower_components/material-design-icons/alert
+ - bower_components/material-design-icons/av
+ - bower_components/material-design-icons/communication
+ - bower_components/material-design-icons/content
+ - bower_components/material-design-icons/device
+ - bower_components/material-design-icons/editor
+ - bower_components/material-design-icons/file
+ - bower_components/material-design-icons/hardware
+ - bower_components/material-design-icons/image
+ - bower_components/material-design-icons/maps
+ - bower_components/material-design-icons/navigation
+ - bower_components/material-design-icons/notification
+ - bower_components/material-design-icons/places
+ - bower_components/material-design-icons/social
+ - bower_components/material-design-icons/sprites
+ - bower_components/material-design-icons/toggle
+ - bower_components/material-design-icons/*.js
+ - bower_components/material-design-icons/*.json
+ - bower_components/material-design-icons/README.md
+
+collections:
+  docs:
+    output: true
+  guides:
+    output: true
